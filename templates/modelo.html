@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Seu Nome">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Acompanhantes</title>
+        <meta name="description" content="">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <header>
+            <div class="logotipo">
+                <img src="/static/img/logotipo-sexe-removebg-preview.png" alt="">
+                <h1>PG MODELS</h1>
+            </div>
+            <nav>
+                <a href="">
+                    contatos
+                </a>
+                <a href="">
+                    Sobre Acompanhantes
+                </a>
+                <a href="">
+                    termos de uso
+                </a>
+                <!--no booton anunciar tem que ser rosa com o texto branco-->
+                <a href="" class="anuncie">
+                    Anuncie
+                </a>
+            </nav>
+        </header>
+        
+        <div class="box-text">
+
+            <div class="acompanhantes-texte">
+
+                <div class="apresentação">
+
+                    <h2>
+                        Acompanhantes
+                    </h2>
+                    <h2>
+                        Ponta Grossa
+                    </h2>
+
+                </div>
+
+                    <!-- Seletor de idioma dos textos da página -->
+                <div class="language-selector">
+                    <select id="languageSelect">
+                        <option value="pt">Português</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+            <!--=PRECISO CRIAR UMA FUNÇÃO PARA MSTRAR CADA MODELO DE ACORDO COM A CATEGORIA-->
+            <!---cada conteúdo deve ser pego do banco de dados pelo pyhon-->
+
+            <!-- NO model.html, substitua as divs de modelos por: -->
+
+<main>
+    <div class="categoria-topVip">
+            <h3>Destaque Top VIP</h3>
+            <br>
+        <div class="modelos">
+            {% for modelo in top_vip %}
+            <div class="modelo-card">
+                <div class="imagem">
+                    <img src="https://pgmodels.com.br/images/vbtnm-maju-131025.webp" alt="{{ modelo.nome }}">
+                </div>
+                <div class="informacao">
+                    <h4>{{ modelo.nome }}</h4>
+                    <div class="cards_descricao">
+                        <p>{{ modelo.idade }} anos</p>
+                        <p>  {{ modelo.atende_moteis_hoteis }}</p>
+                        <p>  {{ modelo.possui_local }}</p>
+                    </div>
+                    <br>
+                    <p>" {{ modelo.descricao }}</p>
+                </div>
+            </div>
+            {% else %}
+            <p style="color: white; text-align: center; grid-column: 1/-1;">Nenhum modelo Top VIP cadastrado.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <div class="categoria-vip">
+        <h3>Destaque VIP</h3>
+        <br>
+        <div class="modelos">
+            {% for modelo in vip %}
+            <div class="modelo-card">
+                <div class="imagem">
+                    <img src="https://pgmodels.com.br/images/vbtnm-brenda-010925.webp" alt="{{ modelo.nome }}">
+                </div>
+                <div class="informacao">
+                    <h4>{{ modelo.nome }}</h4>
+                    <p>Idade: {{ modelo.idade }} anos</p>
+                    <p>Telefone: {{ modelo.numero }}</p>
+                    <p>{{ modelo.descricao }}</p>
+                    <p>Horário: {{ modelo.horario_atendimento }}</p>
+                </div>
+            </div>
+            {% else %}
+            <p style="color: white; text-align: center; grid-column: 1/-1;">Nenhum modelo VIP cadastrado.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <div class="categoria-daCasa">
+        <h3>Destaque da Casa</h3>
+        <br>
+        <div class="modelos">
+            {% for modelo in da_casa %}
+            <div class="modelo-card">
+                <div class="imagem">
+                    <img src="https://pgmodels.com.br/images/btf-massagem-300425.webp" alt="{{ modelo.nome }}">
+                </div>
+                <div class="informacao">
+                    <h4>{{ modelo.nome }}</h4>
+                    <p>Idade: {{ modelo.idade }} anos</p>
+                    <p>Telefone: {{ modelo.numero }}</p>
+                    <p>{{ modelo.descricao }}</p>
+                    <p>Horário: {{ modelo.horario_atendimento }}</p>
+                </div>
+            </div>
+            {% else %}
+            <p style="color: white; text-align: center; grid-column: 1/-1;">Nenhum modelo da casa cadastrado.</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+        <footer>
+            <a href="/login">
+                <img src="/static/img/logotipo-sexe-removebg-preview.png" alt="">
+            </a>
+            <img src="/static/img/twitter_x_new_logo_x_rounded_icon_256078.ico" alt="">
+            <p>© 2024 Acompanhantes. Todos os direitos reservados.</p>
+        </footer>
+        <script src="/static/js/js.js" async defer></script>
+    </body>
+</html>

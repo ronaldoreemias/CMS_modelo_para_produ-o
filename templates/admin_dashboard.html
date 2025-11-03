@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Simples</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .form-add { background: #f5f5f5; padding: 20px; margin: 20px 0; }
+        input, textarea, select { width: 100%; padding: 8px; margin: 5px 0; }
+        button { background: #007bff; color: white; padding: 10px; border: none; }
+        .acompanhante { border: 1px solid #ddd; padding: 10px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Painel Admin Simples</h1>
+    <a href="/logout">Sair</a>
+
+    <div class="form-add">
+        <h3>Adicionar Acompanhante</h3>
+        <form method="POST" action="/admin/add">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="numero" placeholder="Telefone" required>
+            <textarea name="descricao" placeholder="Descrição"></textarea>
+            <input type="number" name="idade" placeholder="Idade">
+            <select name="categoria">
+                <option value="topvip">Top VIP</option>
+                <option value="vip">VIP</option>
+                <option value="dacasa">Da Casa</option>
+            </select>
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+
+    <h3>Acompanhantes Cadastrados</h3>
+    {% for acmp in acompanhantes %}
+    <div class="acompanhante">
+        <strong>{{ acmp.nome }}</strong> - {{ acmp.idade }} anos
+        <br>Tel: {{ acmp.numero }}
+        <br>Categoria: {{ acmp.categoria }}
+        <br>Ativo: {{ acmp.ativo }}
+    </div>
+    {% endfor %}
+</body>
+</html>
