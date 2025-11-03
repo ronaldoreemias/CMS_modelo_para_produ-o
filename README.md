@@ -1,5 +1,7 @@
 # CMS_modelo_para_produ-o
 objetivo de criar um CMS funcional em python , a meta é construir usando Flask_ADMIN.....È o objetivo 
+
+
 🛠️ Descrição do Funcionamento do CMS
 Este projeto é um CMS (Sistema de Gerenciamento de Conteúdo) desenvolvido com Flask e SQLAlchemy, voltado para o cadastro e exibição de perfis personalizados. Ele permite:
 
